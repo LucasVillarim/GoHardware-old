@@ -1,0 +1,153 @@
+
+
+.container div.main-board {
+    background-color: #aeadad;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 700px;
+    height: 631px;
+    max-width: 900px;
+    border-radius: 10px;
+    position: absolute;
+    top: 270px;
+    box-shadow: 2px 2px #646363;
+}
+
+.container div.small-board {
+    background-color: #aeadad;
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 180px;
+    width: 277px;
+    height: 90px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.container div.main-board label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+    position: absolute;
+    top: 20px;
+}
+
+.container div.main-board button.start {
+    font-family: 'Press Start 2P', cursive;
+    padding: 8px 20px;
+    position: relative;
+    top: -230px;
+    border: 0;
+    box-shadow: 0 6px #c4c4c4;
+    border-radius: 10px;
+}
+
+.container div.main-board button.start:hover {
+    background-color: #E8E8E8;
+    transition: 0.2s;
+}
+
+.container div.main-board button.start:active {
+    box-shadow: 0 1px #c4c4c4;
+    color: #E8E8E8;
+    transform: translateY(5px);
+}
+
+/*
+Right-side selector styles ---------------
+*/
+
+.container div.right-board {
+    align-items: center;
+    justify-content: center;
+    background-color: #847E7E;
+    display: flex;
+    position: absolute;
+    top: 130px;
+    right: 10px;
+    width: 250px;
+    height: 80px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 5px;
+    box-shadow: 2px 2px #646363, 3px 3px #646363, 6px 6px #646363, 8px 8px #646363, 10px 10px #646363;
+    z-index: 1;
+}
+
+.container div.right-board label {
+    font-family: 'Press Start 2P', cursive;
+    position: relative;
+}
+
+.container div.input-background-right {
+    position: absolute;
+    background-color: #535CB2;
+    width: 200px;
+    height: 100px;
+    top: 210px;
+    right: 0px;
+    border-bottom-left-radius: 10px;
+}
+
+.container div.input-background-right select {
+    position: absolute;
+    border: none;
+    top: 35px;
+    right: 10px;
+    height: 25px;
+    width: 180px;
+    height: 25px;
+    border-bottom-left-radius: 10px;
+}
+
+/*
+Left-side selector styles -------------
+*/
+
+.container div.left-board {
+    align-items: center;
+    justify-content: center;
+    background-color: #847E7E;
+    display: flex;
+    position: absolute;
+    top: 130px;
+    left: 10px;
+    width: 250px;
+    height: 80px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 5px;
+    box-shadow: -3px 3px #646363, -6px 6px #646363, -8px 8px #646363, -10px 10px #646363;
+    z-index: 1;
+}
+
+.container div.left-board label {
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+}
+
+.container div.input-background-left {
+    position: absolute;
+    background-color: #EE5C5C;
+    width: 200px;
+    height: 100px;
+    top: 210px;
+    left: 0px;
+    border-bottom-right-radius: 10px;
+}
+
+.container div.input-background-left select {
+    position: relative;
+    border: none;
+    border-bottom-right-radius: 10px;
+    top: 35px;
+    left: 10px;
+    height: 25px;
+    width: 180px;
+    height: 25px;
+}
+

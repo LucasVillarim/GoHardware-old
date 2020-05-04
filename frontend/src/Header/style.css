@@ -1,0 +1,107 @@
+.header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    background-color: #7a7978;
+    width: 100%;
+    min-width: 1120px;
+    max-height: 110px;
+    min-height: 110px;
+    margin: auto;
+    z-index: 100;
+    box-shadow: 10px 0px 0px 10px #3d3d3d;
+}
+
+.header a.main-logo {
+    color: #FFF;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 30px;
+    padding: 5px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.header a.login {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #FFF;
+    padding: 10px 20px;
+    position: absolute;
+    right: 120px;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 6px #c4c4c4;
+    text-decoration: none;
+}
+
+.header a.login:visited {
+    color: #000000;
+}
+
+.header a.login:hover {
+    background-color: #E8E8E8;
+    transition: 0.17s;
+}
+
+.header a.login:active {
+    color: #FFF;
+    background-color: #C4c4c4;
+    box-shadow: 1px 2px #c4c4c4;
+    transform: translateX(5px) translateY(6px);
+}
+
+.header a.sobre {
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    background-color: #FFF;
+    padding: 10px 20px;
+    position: absolute;
+    right: 250px;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 6px #c4c4c4;
+    text-decoration: none;
+}
+
+.header a.sobre:visited {
+    color: #000000;
+}
+
+.header a.sobre:hover {
+    background-color: #E8E8E8;
+    transition: 0.17s;
+}
+
+.header a.sobre:active {
+    color: #FFF;
+    background-color: #C4c4c4;
+    box-shadow: 1px 2px #c4c4c4;
+    transform: translateX(5px) translateY(6px);
+}
+
+.header button.exit {
+    background-color: #3d3d3d;
+    position: absolute;
+    right: 50px;
+    color: #FFF; 
+    padding: 8px;
+    border-radius: 20%;
+    margin-left: 20px;
+    border: none;
+    box-shadow: 4px 5px #c4c4c4;
+}
+
+.header button.exit:hover {
+    background-color: #1b1a1a;
+    transition: 0.15s;
+
+}
+
+.header button.exit:active {
+    background-color: #FFF;
+    box-shadow: 1px 2px #c4c4c4;
+    transform: translateX(5px) translateY(4px);
+}
