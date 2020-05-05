@@ -31,3 +31,9 @@ button {
     position: relative;
     overflow: hidden;
 }
+
+a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

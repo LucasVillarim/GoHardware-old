@@ -24,6 +24,7 @@
 .header a.login {
     font-family: 'Press Start 2P', cursive;
     background-color: #FFF;
+    color: #000000;
     padding: 10px 20px;
     position: absolute;
     right: 120px;
