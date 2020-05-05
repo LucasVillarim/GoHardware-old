@@ -47,7 +47,7 @@
 .header a.login:active {
     color: #FFF;
     background-color: #C4c4c4;
-    box-shadow: 1px 2px #c4c4c4;
+    box-shadow: 0 0 #c4c4c4;
     transform: translateX(5px) translateY(6px);
 }
 
@@ -78,7 +78,8 @@
 .header a.sobre:active {
     color: #FFF;
     background-color: #C4c4c4;
-    box-shadow: 1px 2px #c4c4c4;
+    box-shadow: 0 0 #c4c4c4;
+    transition: 0.15s;
     transform: translateX(5px) translateY(6px);
 }
 

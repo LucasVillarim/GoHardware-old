@@ -108,8 +108,8 @@
 }
 
 .container div.login-box form button:active {
-    box-shadow: 0 2px #c4c4c4;
-    transform: translateY(8px);
+    box-shadow: 0 0 #c4c4c4;
+    transform: translateY(10px);
 }
 
 .container div.login-box a {

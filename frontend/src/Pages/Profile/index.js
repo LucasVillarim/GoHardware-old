@@ -5,11 +5,14 @@ import './style.css';
 export default function Profile() {
     return(
         <div className = 'container'>
-            
-            <h1>Pofile Page</h1>
 
             <div className = 'container-box-left'>
-                <h1>left box</h1>
+                <h1>Menu</h1>
+                <button>Button 1</button>
+                <button>Button 1</button>
+                <button>Button 1</button>
+                <button>Button 1</button>
+                <button>Button 1</button>
             </div>
 
             <div className = 'container-box-right'>
