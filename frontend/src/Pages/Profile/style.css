@@ -3,22 +3,30 @@
 */
 
 .container-box-left {
-    background-color: #847E7E;
+    background-color: #5B4695;
     display: flex;
+    align-items: center;
     flex-direction: column;
     position: absolute;
     left: 80px;
     top: 200px;
+    height: 500px;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: -13px 0 0 0 #3d3d3d, -10px 0 0 0 #3d3d3d;
+    box-shadow: -13px 0 0 0 #3d3d3d;
+}
+
+.container-box-left h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    margin-bottom: 10px ;
 }
 
 .container-box-left button{
     font-family: 'Press Start 2P', cursive;
     font-size: 10px;
     border: none;
-    margin: 10px;
+    margin: 25px;
     border-radius: 5px;
     box-shadow: -5px 0 0 0 #B6B3B3;
 }
@@ -39,8 +47,10 @@
 */
 
 .container-box-right {
-    background-color: #847E7E;
+    background-color: #A1A1A1;
     display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     right: 80px;
     top: 200px;
@@ -50,3 +60,73 @@
     border-radius: 10px;
     box-shadow: 20px 0 #3d3d3d;
 }
+
+.container-box-right h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+}
+
+.container-box-right h1 {
+    position: absolute;
+    top: 25px;
+}
+
+/*
+    Mini box styles.  ||
+                      \/  
+*/
+
+.container-box-right div.last-comparison-box {
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 90px;
+    width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.container-box-right div.last-comparison-box label.title {
+    position: absolute;
+    left: 30px;
+}
+
+/*
+    glass effect.
+*/
+
+.container-box-right div.last-comparison-box div.glass-detail1 {
+    background-color: #E7E7E7;
+    opacity: 0.5;
+    position: absolute;
+    width: 190px;
+    height: 50px;
+    transform: rotate(-45deg);
+    right: 20px;
+}
+
+.container-box-right div.last-comparison-box div.glass-detail2 {
+    background-color: #E7E7E7;
+    opacity: 0.5;
+    position: absolute;
+    width: 190px;
+    height: 10px;
+    transform: rotate(-45deg);
+    right: 90px;
+}
+
+.container-box-right div.hardware-data-box {
+    background-color: #E8E8E8;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 180px;
+    width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+

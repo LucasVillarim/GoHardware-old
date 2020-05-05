@@ -8,11 +8,12 @@ const ProfileController = require('../controllers/ProfileController');
 
 router.get('/', auth, UserController.indexUser);
 
+router.get('/profile', ProfileController.pullInfo);
+
 router.post('/create', UserController.createUser);
 
 router.post('/auth', AuthController.authUser);
 
-router.get('/profile', ProfileController.pullInfo);
 
 module.exports = router;
 
