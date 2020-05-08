@@ -104,6 +104,6 @@
 
 .header button.exit:active {
     background-color: #FFF;
-    box-shadow: 1px 2px #c4c4c4;
-    transform: translateX(5px) translateY(4px);
+    box-shadow: 0px 0px #c4c4c4;
+    transform: translateX(4px) translateY(5px);
 }

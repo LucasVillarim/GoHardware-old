@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Profile from './Pages/Profile';
 import Sobre from './Pages/Sobre';
+import Footer from './Footer/index';
 
 export default function Routes() {
     return(
@@ -18,6 +19,7 @@ export default function Routes() {
                 <Route exact path = "/sobre" component = {Sobre} />
 
             </Switch>
+            <Footer />
         </BrowserRouter>
     );
 }

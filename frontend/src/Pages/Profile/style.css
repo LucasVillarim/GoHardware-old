@@ -24,12 +24,12 @@
 
 .container-box-left a{
     font-family: 'Press Start 2P', cursive;
-    background-color: #C4C4C4;
+    background-color: #FFF;
     font-size: 10px;
     border: none;
-    margin: 25px;
+    margin: 20px;
     width: 100px;
-    height: 20px;
+    height: 30px;
     border-radius: 5px;
     box-shadow: -5px 0 0 0 #B6B3B3;
 }
