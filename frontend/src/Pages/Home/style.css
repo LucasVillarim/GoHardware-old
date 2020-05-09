@@ -3,6 +3,7 @@
 .container div.main-board {
     background-color: #5B4695;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: auto;
@@ -39,7 +40,6 @@
 .container div.main-board button.start {
     font-family: 'Press Start 2P', cursive;
     padding: 8px 20px;
-    position: relative;
     top: -230px;
     border: 0;
     box-shadow: 0 6px #c4c4c4;
@@ -151,5 +151,32 @@ Left-side selector styles -------------
     height: 25px;
     width: 270px;
     height: 25px;
+}
+
+/*
+    Table style.
+*/
+
+.container table {
+    background-color: #C4C4C4;
+    table-layout: fixed;
+    text-align: center;
+    justify-content: center;
+    border-collapse: collapse;
+    width: 60%;
+    border-radius: 10px;
+}
+
+.container tr td{
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.container tr:hover {
+    background-color: #7A7978;
+}
+
+.container tr td.last-tr {
+    border-bottom: 0;
 }
 
