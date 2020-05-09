@@ -32,7 +32,7 @@ export default function Home() {
 
                 <div className = "main-board">
                     <label>Hardware 1 x Hardware 2</label>
-                    <button className = "start">Start</button>
+
 
                     <table className = "table">
                         <tr>
@@ -77,7 +77,7 @@ export default function Home() {
                     <label>hardware 1</label>
                 </div>
                 <div className = "input-background-left">
-                    <Select options = {optionsLeft} 
+                    <Select className = "select-left" options = {optionsLeft} 
                     onChange = {setSelectedLeft}
                     placeholder = "Select an option"
                     />
@@ -87,7 +87,7 @@ export default function Home() {
                     <label>Hardware 2</label>
                 </div>
                 <div className = "input-background-right">
-                    <Select options = {optionsRight} 
+                    <Select className = "select-right" options = {optionsRight} 
                     onChange = {setSelectedRight}
                     placeholder = "Select an option"
 
@@ -98,3 +98,10 @@ export default function Home() {
         </div>
     );
 }
+
+//Puxar no database todas as informações referentes a option (ex:. GTX 1060) na query deve conter 
+//todos os atributos do hardware, posteriormente desestruturar a query e por nas células.
+
+/* Maybe Deleted
+                    <button className = "start">Start</button>
+*/
