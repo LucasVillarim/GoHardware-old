@@ -17,7 +17,9 @@ router.post('/auth', AuthController.authUser);
 
 router.post('/select', SelectController.createHardware);
 
-router.post('/info', SelectController.getHardwareInfo);
+router.post('/infoLeft', SelectController.getHardwareInfoLeft);
+
+router.post('/infoRight', SelectController.getHardwareInfoRight);
 
 module.exports = router;
 

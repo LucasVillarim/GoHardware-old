@@ -13,8 +13,8 @@ export default function Home() {
     const [ selectedRight, setSelectedRight ] = useState({});
     const value2 = selectedRight.value;
 
-    const [hardwareInfo, setHardwareInfo] = useState([]);
-    const ramLeft = hardwareInfo;
+    const [hardwareInfoLeft, setHardwareInfoLeft] = useState([]);
+    const [hardwareInfoRight, setHardwareInfoRight] = useState([]);
 
     const optionsLeft = [
         {value: "", label: "None"},
@@ -33,11 +33,21 @@ export default function Home() {
     
 
     useEffect(() => {
-        api.post('info', {selectedLeft}).then(response => {
-            setHardwareInfo(response.data);
+        
+        api.post('infoLeft', {selectedLeft}).then(response => {
+            
+            setHardwareInfoLeft(response.data);
             console.log(response.data);
         })
     },[selectedLeft])
+
+    useEffect(() => {
+        
+        api.post('infoRight', {selectedRight}).then(response => {
+            setHardwareInfoRight(response.data);
+            console.log(response.data);
+        })
+    },[selectedRight])
     
   
     return(
@@ -48,39 +58,43 @@ export default function Home() {
                     <label>Hardware 1 x Hardware 2</label>
 
 
-                        {hardwareInfo.map( hardware => (
-                            <table className = "table">
-                                    <tr>
-                                        <td>{value1}</td>
-                                        <td>Model</td>
-                                        <td>{value2}</td>
-                                    </tr>
-                                    <tr>   
-                                        <td>{hardware.ram}</td>
-                                        <td>RAM</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Clock</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>    
-                                        <td></td>
-                                        <td>Driver</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>    
-                                        <td></td>
-                                        <td>Memory type</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr className = "last-tr">    
-                                        <td></td>
-                                        <td>Power Supply</td>
-                                        <td></td>
-                                    </tr>
-                            </table>
+                            
+
+                        {hardwareInfoLeft.map( hardwareLeft => (
+                            hardwareInfoRight.map(hardwareRight => (
+                                <table className = "table">
+                                        <tr>
+                                            <td>{value1}</td>
+                                            <td>Model</td>
+                                            <td>{value2}</td>
+                                        </tr>
+                                        <tr>   
+                                            <td>{hardwareLeft.ram}</td>
+                                            <td>RAM</td>
+                                            <td>{hardwareRight.ram}</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Clock</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>    
+                                            <td></td>
+                                            <td>Driver</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>    
+                                            <td></td>
+                                            <td>Memory type</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr className = "last-tr">    
+                                            <td></td>
+                                            <td>Power Supply</td>
+                                            <td></td>
+                                        </tr>
+                                </table>
+                            ))
                         ))}
 
                 </div>
