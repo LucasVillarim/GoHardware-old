@@ -5,9 +5,10 @@ module.exports = {
 
     async getHardwareInfo(request, response) {
         
-        try {
+        const { model } = request.body;
 
-            const getInfo = await Hardwares.find({});
+        try {
+            const getInfo = await Hardwares.find({model});
             return response.send(getInfo);
 
         } catch (error) {

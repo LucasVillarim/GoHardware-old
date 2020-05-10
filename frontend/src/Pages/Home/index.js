@@ -1,13 +1,16 @@
-import React, {useState} from 'react';
-import Select from 'react-select';
+import React, {useState, useEffect } from 'react';
+import Select, { components } from 'react-select';
+
+import api from '../../services/api';
 
 import './style.css';
 
 export default function Home() {
 
     const [ selectedLeft, setSelectedLeft ] = useState({});
-    const [ selectedRight, setSelectedRight ] = useState({});
     const value1 = selectedLeft.value;
+
+    const [ selectedRight, setSelectedRight ] = useState({});
     const value2 = selectedRight.value;
 
 
@@ -26,6 +29,16 @@ export default function Home() {
         {value: "AMD Radeon VEGA", label: "AMD Radeon VEGA"}
     ];      
     
+
+    useEffect(() => {
+        api.post('info', {
+            body: {
+
+            }
+        })
+    })
+    
+  
     return(
         <div className = "wrapper">
             <div className = "container">
