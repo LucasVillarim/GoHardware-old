@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const config = require('./config/config');
+const cors = require('cors');
 
 
 const url = config.bd_string;
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 
 const usersRoute = require('./Routes/users');
 
+app.use(cors());
 app.use(usersRoute);
 
 app.listen(3333);

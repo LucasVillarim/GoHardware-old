@@ -13,6 +13,8 @@ export default function Home() {
     const [ selectedRight, setSelectedRight ] = useState({});
     const value2 = selectedRight.value;
 
+    const [hardwareInfo, setHardwareInfo] = useState([]);
+    const ramLeft = hardwareInfo;
 
     const optionsLeft = [
         {value: "", label: "None"},
@@ -31,12 +33,11 @@ export default function Home() {
     
 
     useEffect(() => {
-        api.post('info', {
-            body: {
-
-            }
+        api.post('info', {selectedLeft}).then(response => {
+            setHardwareInfo(response.data);
+            console.log(response.data);
         })
-    })
+    },[selectedLeft])
     
   
     return(
@@ -47,38 +48,40 @@ export default function Home() {
                     <label>Hardware 1 x Hardware 2</label>
 
 
-                    <table className = "table">
-                        <tr>
-                            <td>{value1}</td>
-                            <td>Model</td>
-                            <td>{value2}</td>
-                        </tr>
-                        <tr>   
-                            <td></td>
-                            <td>RAM</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Clock</td>
-                            <td></td>
-                        </tr>
-                        <tr>    
-                            <td></td>
-                            <td>Driver</td>
-                            <td></td>
-                        </tr>
-                        <tr>    
-                            <td></td>
-                            <td>Memory type</td>
-                            <td></td>
-                        </tr>
-                        <tr className = "last-tr">    
-                            <td></td>
-                            <td>Power Supply</td>
-                            <td></td>
-                        </tr>
-                    </table>
+                        {hardwareInfo.map( hardware => (
+                            <table className = "table">
+                                    <tr>
+                                        <td>{value1}</td>
+                                        <td>Model</td>
+                                        <td>{value2}</td>
+                                    </tr>
+                                    <tr>   
+                                        <td>{hardware.ram}</td>
+                                        <td>RAM</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Clock</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>    
+                                        <td></td>
+                                        <td>Driver</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>    
+                                        <td></td>
+                                        <td>Memory type</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr className = "last-tr">    
+                                        <td></td>
+                                        <td>Power Supply</td>
+                                        <td></td>
+                                    </tr>
+                            </table>
+                        ))}
 
                 </div>
 
