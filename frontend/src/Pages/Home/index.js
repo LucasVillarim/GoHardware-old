@@ -1,102 +1,96 @@
 import React, {useState, useEffect } from 'react';
 import Select, { components } from 'react-select';
+import options from './options';
 
 import api from '../../services/api';
 
 import './style.css';
 
-export default function Home() {
-
+export default function Home() { 
     const [ selectedLeft, setSelectedLeft ] = useState({});
-    const value1 = selectedLeft.value;
-
     const [ selectedRight, setSelectedRight ] = useState({});
-    const value2 = selectedRight.value;
 
     const [hardwareInfoLeft, setHardwareInfoLeft] = useState([]);
     const [hardwareInfoRight, setHardwareInfoRight] = useState([]);
 
-    const optionsLeft = [
-        {value: "", label: "None"},
-        {value: "GTX 1060 6gb", label: "GTX 1060 6gb"},
-        {value: "GTX 1070 8gb", label: "GTX 1070 8gb"},
-        {value: "GTX 1080 12gb", label: "GTX 1080 12gb"}
-    ];      
+    const [ ramLeft, setRamLeft ] = useState([]);
+    const [ clockLeft, setClockLeft ] = useState([]);
+    const [ driverLeft, setDriverLeft ] = useState([]);
+    const [ memoryTypeLeft, setMemoryTypeLeft ] = useState([]);
+    const [ powerSupplyLeft, setPowerSupplyLeft ] = useState([]);
 
-    const optionsRight = [
-        {value: "", label: "None"},
-        {value: "GTX 1060 6gb", label: "GTX 1060 6gb"},
-        {value: "GTX 1070 8gb", label: "GTX 1070 8gb"},
-        {value: "GTX 1080 12gb", label: "GTX 1080 12gb"},
-        {value: "AMD Radeon VEGA", label: "AMD Radeon VEGA"}
-    ];      
-    
+    const [ ramRight, setRamRight ] = useState([]);
+    const [ clockRight, setClockRight ] = useState([]);
+    const [ driverRight, setDriverRight ] = useState([]);
+    const [ memoryTypeRight, setMemoryTypeRight ] = useState([]);
+    const [ powerSupplyRight, setPowerSupplyRight ] = useState([]);
 
     useEffect(() => {
-        
         api.post('infoLeft', {selectedLeft}).then(response => {
-            
-            setHardwareInfoLeft(response.data);
-            console.log(response.data);
+            response.data.map( hardware => {
+                setRamLeft(hardware.ram)
+                setClockLeft(hardware.clock)
+                setDriverLeft(hardware.driver)
+                setMemoryTypeLeft(hardware.memoryType)
+                setPowerSupplyLeft(hardware.powerSupply)
+            })
         })
     },[selectedLeft])
 
     useEffect(() => {
-        
         api.post('infoRight', {selectedRight}).then(response => {
-            setHardwareInfoRight(response.data);
+            response.data.map( hardware => {
+                setRamRight(hardware.ram)
+                setClockRight(hardware.clock)
+                setDriverRight(hardware.driver)
+                setMemoryTypeRight(hardware.memoryType)
+                setPowerSupplyRight(hardware.powerSupply)
+            })
+
             console.log(response.data);
         })
     },[selectedRight])
-    
-  
+   
+      
     return(
         <div className = "wrapper">
             <div className = "container">
 
                 <div className = "main-board">
-                    <label>Hardware 1 x Hardware 2</label>
+                    <label>VS</label>
 
-
-                            
-
-                        {hardwareInfoLeft.map( hardwareLeft => (
-                            hardwareInfoRight.map(hardwareRight => (
-                                <table className = "table">
-                                        <tr>
-                                            <td>{value1}</td>
-                                            <td>Model</td>
-                                            <td>{value2}</td>
-                                        </tr>
-                                        <tr>   
-                                            <td>{hardwareLeft.ram}</td>
-                                            <td>RAM</td>
-                                            <td>{hardwareRight.ram}</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td>Clock</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>    
-                                            <td></td>
-                                            <td>Driver</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>    
-                                            <td></td>
-                                            <td>Memory type</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr className = "last-tr">    
-                                            <td></td>
-                                            <td>Power Supply</td>
-                                            <td></td>
-                                        </tr>
-                                </table>
-                            ))
-                        ))}
-
+                    <table className = "table">
+                        <tr>
+                            <td>{selectedLeft.value}</td>
+                            <td>Model</td>
+                            <td>{selectedRight.value}</td>
+                        </tr>
+                        <tr>   
+                            <td>{ ramLeft }</td>
+                            <td>RAM</td>
+                            <td>{ramRight}</td>
+                        </tr>
+                        <tr>
+                            <td>{clockLeft}</td>
+                            <td>Clock</td>
+                            <td>{clockRight}</td>
+                        </tr>
+                        <tr>    
+                            <td>{driverLeft}</td>
+                            <td>Driver</td>
+                            <td>{driverRight}</td>
+                        </tr>
+                        <tr>    
+                            <td>{memoryTypeLeft}</td>
+                            <td>Memory type</td>
+                            <td>{memoryTypeRight}</td>
+                        </tr>
+                        <tr className = "last-tr">    
+                            <td>{powerSupplyLeft}</td>
+                            <td>Power Supply</td>
+                            <td>{powerSupplyRight}</td>
+                        </tr>
+                    </table>
                 </div>
 
                 <div className = "small-board">
@@ -107,7 +101,7 @@ export default function Home() {
                     <label>hardware 1</label>
                 </div>
                 <div className = "input-background-left">
-                    <Select className = "select-left" options = {optionsLeft} 
+                    <Select className = "select-left" options = {options} 
                     onChange = {setSelectedLeft}
                     placeholder = "Select an option"
                     />
@@ -117,7 +111,7 @@ export default function Home() {
                     <label>Hardware 2</label>
                 </div>
                 <div className = "input-background-right">
-                    <Select className = "select-right" options = {optionsRight} 
+                    <Select className = "select-right" options = {options} 
                     onChange = {setSelectedRight}
                     placeholder = "Select an option"
 
@@ -129,9 +123,10 @@ export default function Home() {
     );
 }
 
-//Puxar no database todas as informações referentes a option (ex:. GTX 1060) na query deve conter 
-//todos os atributos do hardware, posteriormente desestruturar a query e por nas células.
+/*
+ {hardwareInfoLeft.map( hardwareLeft => (
+                            hardwareInfoRight.map(hardwareRight => (
 
-/* Maybe Deleted
-                    <button className = "start">Start</button>
-*/
+    ))
+                        ))}
+                                */

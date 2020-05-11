@@ -32,9 +32,20 @@
 
 .container div.main-board label {
     font-family: 'Press Start 2P', cursive;
-    font-size: 15px;
+    font-size: 45px;
     position: absolute;
-    top: 20px;
+    top: 60px;
+    animation-name: pulse;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    0% {color: #000000;}
+    25% { color: #C1C354;}
+    50% {color: aqua;}
+    75% {color: greenyellow;}
+    100% {color: red;}
 }
 /*
 .container div.main-board button.start {

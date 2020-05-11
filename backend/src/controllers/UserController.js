@@ -16,19 +16,20 @@ module.exports = {
 
     async createUser( request, response ) {
 
-        const { username, password } = request.body;
+        const { email, password } = request.body;
 
-        if ( !username || !password ) return response.status(400).send ({ error: 'Dados insuficientes.' });
+        if ( !email || !password ) return response.status(400).send({ error: 'Dados insuficientes.' });
         
         try {
-            if ( await Users.findOne( {username} )) return response.send({ error: 'Usuário já registrado' });
+            if ( await Users.findOne( {email} )) return response.send({ error: 'Usuário já registrado' });
         
             const user = await Users.create(request.body);
             user.password = undefined;
             return response.send(user);
             
         } catch ( err ) {
-            return response.send({ error: 'Error ao buscar usuário.' });
+            console.log(err.stack);
+            return response.send({ error: 'Error ao criar usuário.' });
         }
     }
 }

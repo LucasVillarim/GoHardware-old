@@ -8,17 +8,12 @@ const ProfileController = require('../controllers/ProfileController');
 const SelectController = require('../controllers/SelectController');
 
 router.get('/', auth, UserController.indexUser);
-
 router.get('/profile', ProfileController.pullInfo);
-
 router.post('/create', UserController.createUser);
-
 router.post('/auth', AuthController.authUser);
 
 router.post('/select', SelectController.createHardware);
-
 router.post('/infoLeft', SelectController.getHardwareInfoLeft);
-
 router.post('/infoRight', SelectController.getHardwareInfoRight);
 
 module.exports = router;

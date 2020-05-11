@@ -5,13 +5,13 @@ const createUserToken = require('../services/token');
 module.exports = {
 
     async authUser(request, response) {
-        const { username, password } = request.body;
+        const { email, password } = request.body;
 
 
-        if (!username || !password ) return response.send({ error: 'Dados insuficientes.' });
+        if (!email || !password ) return response.send({ error: 'Dados insuficientes.' });
 
         try {
-            const user = await Users.findOne({ username }).select('+password'); 
+            const user = await Users.findOne({ email }).select('+password'); 
             if (!user) {
                  return response.status(400).send({ error: 'Usuário não registrado.' });
             } else {
