@@ -99,17 +99,17 @@
     padding: 10px 30px;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 10px #c4c4c4;
+    box-shadow: 0 7px #c4c4c4;
 }
 
 .container div.login-box form button:hover {
     background-color: #FFF;
-    transition: 0.2s;
+    transition: 0.1s ease-in;
 }
 
 .container div.login-box form button:active {
-    box-shadow: 0 0 #c4c4c4;
-    transform: translateY(10px);
+    box-shadow: 0 0px #c4c4c4;
+    transform: translateY(7px);
 }
 
 .container div.login-box a {

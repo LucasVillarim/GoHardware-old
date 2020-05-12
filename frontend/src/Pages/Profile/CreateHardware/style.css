@@ -42,6 +42,7 @@
 }
 
 .container div form {
+    background-color: #B6B3B3;
     display: flex;
     flex-direction: column;
     align-items: center;
