@@ -9,7 +9,7 @@
 
 body {
     font: 400 14px Roboto, sans-serif;
-    background: #c4c4c4;
+    background: #323232;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -23,13 +23,12 @@ button {
     background-color: #323232;
     max-width: 1120px;
     min-width: 1120px;
-    height: 1000px;
+    height: 120vh;
     display: flex;
     margin: auto;
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
 }
 
 a {

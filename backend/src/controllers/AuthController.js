@@ -7,8 +7,7 @@ module.exports = {
     async authUser(request, response) {
         const { email, password } = request.body;
 
-
-        if (!email || !password ) return response.send({ error: 'Dados insuficientes.' });
+        if ( !email || !password ) return response.send({ error: 'Dados insuficientes.' });
 
         try {
             const user = await Users.findOne({ email }).select('+password'); 
@@ -21,11 +20,12 @@ module.exports = {
             }
 
             user.password = undefined;
-            return response.send({ user, token: createUserToken(user.id) });
+            console.log(email, password);
+            return response.json({ user, token: createUserToken(user.id) });
 
 
         } catch (err) {
-            return response.send({ error: 'Erro ao buscar usuário.' });
+            return response.json({ error: 'Erro ao buscar usuário.' });
         }
     }
 }

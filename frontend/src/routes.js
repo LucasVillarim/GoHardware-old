@@ -7,6 +7,7 @@ import Login from './Pages/Login';
 import Profile from './Pages/Profile';
 import Sobre from './Pages/Sobre';
 import Footer from './Footer/index';
+import createHardware from './Pages/Profile/CreateHardware';
 
 export default function Routes() {
     return(
@@ -16,6 +17,7 @@ export default function Routes() {
                 <Route exact path = "/" component = {Home} />
                 <Route exact path = "/login" component = {Login} />
                 <Route exact path = "/profile" component = {Profile} />
+                <Route exact path = "/profile/create" component = {createHardware} />
                 <Route exact path = "/sobre" component = {Sobre} />
 
             </Switch>

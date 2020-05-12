@@ -13,7 +13,7 @@ export default function Profile() {
                 <Link to = "/">Compare</Link>
                 <Link to = "/store">Store</Link>
                 <Link to = "/reviews">Reviews</Link>
-                <Link to = "">Button 1</Link>
+                <Link to = "#">Create Hardware</Link>
             </div>
 
             <div className = 'container-box-right'>

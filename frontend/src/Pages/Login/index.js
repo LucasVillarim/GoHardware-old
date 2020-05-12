@@ -23,9 +23,10 @@ export default function Login() {
             localStorage.setItem('password', password);
 
             history.push('/profile');
-            
+        
         } catch (err) {
-            alert('Falha no login tente novamente.');
+            alert(err);
+            
         }
     }
 
@@ -45,6 +46,7 @@ export default function Login() {
                     className = "input-usuario" 
                     type = "text" 
                     placeholder = "Digite seu nome aqui" 
+                    required = "required" 
                     onChange = {e => setEmail(e.target.value)}
                     />
                     
@@ -53,10 +55,11 @@ export default function Login() {
                     className = "input-password" 
                     type = "password" 
                     placeholder = "Digite sua senha aqui" 
+                    required = "required"
                     onChange = {e => setPassword(e.target.value)}
                     />
 
-                    <button type = "submit">Entrar</button>
+                    <button type = "submit">Enter</button>
                 
                 
                     <Link to = '/'>Ainda não é cadastrado? Clique aqui!</Link>
