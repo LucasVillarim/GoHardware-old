@@ -41,10 +41,17 @@
     box-shadow: 20px 0 #3d3d3d;
 }
 
+<<<<<<< HEAD
 .container section form {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto;
+=======
+.container div form {
+    background-color: #B6B3B3;
+    display: flex;
+    flex-direction: column;
+>>>>>>> 8fb8ce65b55b1161009adf529cb0a9db25b3dacf
     align-items: center;
     justify-content: center;
     margin-top: 110px;

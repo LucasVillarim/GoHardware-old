@@ -104,11 +104,16 @@
 
 .container section.login-box form button:hover {
     background-color: #FFF;
-    transition: 0.2s;
+    transition: 0.1s ease-in;
 }
 
+<<<<<<< HEAD
 .container section.login-box form button:active {
     box-shadow: 0 0 #c4c4c4;
+=======
+.container div.login-box form button:active {
+    box-shadow: 0 0px #c4c4c4;
+>>>>>>> 8fb8ce65b55b1161009adf529cb0a9db25b3dacf
     transform: translateY(7px);
 }
 
