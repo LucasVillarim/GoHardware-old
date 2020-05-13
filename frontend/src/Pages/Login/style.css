@@ -34,7 +34,7 @@
     Login-box styles (labels, inputs, login button, create-account-link).
 */
 
-.container div.login-box form {
+.container section.login-box form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,14 +53,14 @@
 /*
     User -------
 */
-.container div.login-box form label.label-usuario {
+.container section.login-box form label.label-usuario {
     font-family: 'Press Start 2P', cursive;
     color: #FFF;
     position: absolute;
     top: 50px;
 }
 
-.container div.login-box form input.input-usuario {
+.container section.login-box form input.input-usuario {
     position: absolute;
     top: 80px;
     width: 400px;
@@ -74,14 +74,14 @@
     Password -------
 */
 
-.container div.login-box form label.label-password {
+.container section.login-box form label.label-password {
     font-family: 'Press Start 2P', cursive;
     color: #FFF;
     position: absolute;
     top: 150px;
 }
 
-.container div.login-box form input.input-password {
+.container section.login-box form input.input-password {
     position: absolute;
     top: 180px;
     width: 400px;
@@ -91,7 +91,7 @@
     padding: 10px;
 }
 
-.container div.login-box form button {
+.container section.login-box form button {
     position: absolute;
     font-family: 'Press Start 2P', cursive;
     top: 250px;
@@ -99,20 +99,20 @@
     padding: 10px 30px;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 10px #c4c4c4;
+    box-shadow: 0 7px #c4c4c4;
 }
 
-.container div.login-box form button:hover {
+.container section.login-box form button:hover {
     background-color: #FFF;
     transition: 0.2s;
 }
 
-.container div.login-box form button:active {
+.container section.login-box form button:active {
     box-shadow: 0 0 #c4c4c4;
-    transform: translateY(10px);
+    transform: translateY(7px);
 }
 
-.container div.login-box a {
+.container section.login-box a {
     text-decoration: none;
     color: #c4c4c4;
     font-size: 17px;
@@ -120,7 +120,7 @@
     top: 335px;
 }
 
-.container div.login-box a:hover {
+.container section.login-box a:hover {
     color: #FFF;
     transition: 0.4s;
 }

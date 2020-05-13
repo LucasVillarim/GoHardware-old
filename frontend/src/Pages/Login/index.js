@@ -38,7 +38,7 @@ export default function Login() {
                 <img src = {require('../../assets/Notebook.gif')} alt = "Login" />
             </div>
                 
-            <div className = "login-box">
+            <section className = "login-box">
 
                 <form onSubmit = {handleLogin}>    
                     <label className = "label-usuario">Nome de Usuário/E-mail</label>
@@ -64,7 +64,7 @@ export default function Login() {
                 
                     <Link to = '/'>Ainda não é cadastrado? Clique aqui!</Link>
                 </form>
-            </div>     
+            </section>     
         </div>
     );
 }

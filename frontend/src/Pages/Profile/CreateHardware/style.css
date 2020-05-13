@@ -26,7 +26,7 @@
     box-shadow: -5px 0 0 0 #B6B3B3;
 }
 
-.container div.form {
+.container section {
     background-color: #A1A1A1;
     position: absolute;
     display: flex;
@@ -41,9 +41,43 @@
     box-shadow: 20px 0 #3d3d3d;
 }
 
-.container div form {
-    display: flex;
-    flex-direction: column;
+.container section form {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
     align-items: center;
     justify-content: center;
+    margin-top: 110px;
+}
+
+.container section form input {
+    width: 300px;
+    height: 35px;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.container section form button {
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 410px;
+    right: 190px;
+    width: 300px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 7px #c4c4c4;
+}
+
+.container section form button:hover {
+    background-color: #FFF;
+}
+
+.container section form button:active {
+    box-shadow: 0 0 #c4c4c4;
+    transform: translateY(7px);
+    transition: 0.2s;
 }

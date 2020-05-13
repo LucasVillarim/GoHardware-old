@@ -24,29 +24,41 @@ export default function createHardware() {
                 <Link to = "#">Create Hardware</Link>
             </div>
 
-            <div className = "form">
+            <section className = "form">
                 <form onSubmit = {handleCreation}>
-                    <label>Model:</label>
-                    <input type = "text" />
+                    <input type = "text" 
+                        required = "required"
+                        placeholder = "Model"
+                    />
 
-                    <label>Ram:</label>
-                    <input type = "text" />
+                    <input type = "text" 
+                        required = "required"
+                        placeholder = "RAM"
+                    />
                     
-                    <label>Clock:</label>
-                    <input type = "text" />
+                    <input type = "text" 
+                        required = "required"
+                        placeholder = "Clock"
+                    />
                     
-                    <label>Last Driver:</label>
-                    <input type = "text" />
+                    <input type = "text"
+                        required = "required"
+                        placeholder = "Last driver"
+                    />
                     
-                    <label>Memory Type:</label>
-                    <input type = "text" />
+                    <input type = "text" 
+                        required = "required"
+                        placeholder = "Memory type"
+                    />
                     
-                    <label>Power Supply:</label>
-                    <input type = "text" />
+                    <input type = "text" 
+                        required = "required"
+                        placeholder = "Power supply"
+                    />
 
                     <button type = "submit">Create</button>
                 </form>
-            </div>
+            </section>
         </div>
 
     );

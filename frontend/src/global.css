@@ -8,6 +8,7 @@
 }
 
 body {
+    height: 100%;
     font: 400 14px Roboto, sans-serif;
     background: #323232;
     -webkit-font-smoothing: antialiased;
@@ -23,7 +24,7 @@ button {
     background-color: #323232;
     max-width: 1120px;
     min-width: 1120px;
-    height: 120vh;
+    height: 1120px;
     display: flex;
     margin: auto;
     align-items: center;
