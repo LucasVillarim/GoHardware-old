@@ -30,7 +30,6 @@ export default function Login() {
         }
     }
 
-
     return(
         <div className = "container">
             <div className = "gif-box">
@@ -38,8 +37,7 @@ export default function Login() {
                 <img src = {require('../../assets/Notebook.gif')} alt = "Login" />
             </div>
                 
-            <section className = "login-box">
-
+            <div className = "login-box">
                 <form onSubmit = {handleLogin}>    
                     <label className = "label-usuario">Nome de Usuário/E-mail</label>
                     <input 
@@ -61,10 +59,9 @@ export default function Login() {
 
                     <button type = "submit">Enter</button>
                 
-                
-                    <Link to = '/'>Ainda não é cadastrado? Clique aqui!</Link>
+                    <Link className = "link" to = '/'>Ainda não é cadastrado? Clique aqui!</Link>
                 </form>
-            </section>     
+            </div>     
         </div>
     );
 }

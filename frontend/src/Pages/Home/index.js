@@ -10,9 +10,6 @@ export default function Home() {
     const [ selectedLeft, setSelectedLeft ] = useState({});
     const [ selectedRight, setSelectedRight ] = useState({});
 
-    const [hardwareInfoLeft, setHardwareInfoLeft] = useState([]);
-    const [hardwareInfoRight, setHardwareInfoRight] = useState([]);
-
     const [ ramLeft, setRamLeft ] = useState([]);
     const [ clockLeft, setClockLeft ] = useState([]);
     const [ driverLeft, setDriverLeft ] = useState([]);
@@ -114,8 +111,7 @@ export default function Home() {
                     <Select className = "select-right" options = {options} 
                     onChange = {setSelectedRight}
                     placeholder = "Select an option"
-
-                />
+                    />
                 </div>
 
             </div>

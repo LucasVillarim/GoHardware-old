@@ -15,21 +15,29 @@
 }
 
 .container div.container-box-menu a {
-    font-family: 'Press Start 2P', cursive;
     background-color: #FFF;
+    color: inherit;
+    font-family: 'Press Start 2P', cursive;
     font-size: 10px;
-    border: none;
-    margin: 20px;
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    box-shadow: -5px 0 0 0 #B6B3B3;
+    font-weight: bold;
+    align-items: center;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 15px;
+    box-shadow: -7px 0 #c4c4c4;
 }
+
+/*
+    Form style
+*/
 
 .container section {
     background-color: #A1A1A1;
     position: absolute;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     right: 80px;
@@ -41,21 +49,18 @@
     box-shadow: 20px 0 #3d3d3d;
 }
 
-<<<<<<< HEAD
+.container section h1 {
+    font-family: 'Press Start 2P', cursive;
+    margin-bottom: 70px;
+    
+}
+
 .container section form {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: auto;
-=======
-.container div form {
-    background-color: #B6B3B3;
-    display: flex;
-    flex-direction: column;
->>>>>>> 8fb8ce65b55b1161009adf529cb0a9db25b3dacf
-    align-items: center;
-    justify-content: center;
-    margin-top: 110px;
-}
+    margin-bottom: 70px;
+}   
 
 .container section form input {
     width: 300px;
@@ -69,13 +74,12 @@
 .container section form button {
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 410px;
+    top: 390px;
     right: 190px;
     width: 300px;
     border: none;
     border-radius: 10px;
     padding: 10px;
-    margin: 10px;
     box-shadow: 0 7px #c4c4c4;
 }
 

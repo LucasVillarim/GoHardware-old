@@ -13,11 +13,11 @@ export default function Profile() {
                 <Link to = "/">Compare</Link>
                 <Link to = "/store">Store</Link>
                 <Link to = "/reviews">Reviews</Link>
-                <Link to = "#">Create Hardware</Link>
+                <Link to = "/profile/create">Create</Link>
             </div>
 
             <div className = 'container-box-right'>
-            <div className = "glass-background2"></div>
+                <div className = "glass-background2"></div>
 
                 <h1>Control Panel</h1>
 
@@ -40,7 +40,7 @@ export default function Profile() {
                     <label>Power demand : 000W</label>
                 
                     
-                    <div className = "glass-detail1-box2"></div>
+                <div className = "glass-detail1-box2"></div>
                 </div>
             </div>
         </div>
