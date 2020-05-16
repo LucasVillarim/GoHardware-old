@@ -29,6 +29,16 @@
     box-shadow: -7px 0 #c4c4c4;
 }
 
+.container div.container-box-menu a:hover {
+    background-color: #E8E8E8;
+    transition: 0.17s;
+}
+
+.container div.container-box-menu a:active {
+    box-shadow: 0 0 #c4c4c4;
+    transform: translateX(-7px);
+}
+
 /*
     Form style
 */

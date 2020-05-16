@@ -18,8 +18,13 @@ export default function CreateHardware() {
 
     async function handleCreation(e) {
         e.preventDefault();
-
         
+        try {
+            await api.post('profile/create', { hardware });
+        }
+        catch (err) {
+            alert(err.stack);
+        }
     }
     
     function prepareArray(e) {
@@ -28,7 +33,6 @@ export default function CreateHardware() {
             ...hardware,
             [e.target.name]: data  
         })
-
     }
 
     return(
