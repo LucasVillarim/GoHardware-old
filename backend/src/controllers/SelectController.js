@@ -5,12 +5,14 @@ module.exports = {
 
     async getHardwareInfo(request, response) {
 
-        const { value } = request.body.selected;
+        const { value } = request.body.select;
         const model = value;
+        //console.log(model);
+        //console.log(request.body.select);
 
         try {
             const getInfo = await Hardwares.find({model});
-            //console.log(getInfo);
+            console.log(getInfo);
             return response.json(getInfo);
 
         } catch (error) {

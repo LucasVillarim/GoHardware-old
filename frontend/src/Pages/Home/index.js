@@ -7,10 +7,8 @@ import api from '../../services/api';
 import './style.css';
 
 export default function Home() { 
-    const [ selected, setSelected ] = useState({
-        left: "",
-        right: "",
-    });
+    const [ selectedLeft, setSelectedLeft ] = useState({});
+    const [ selectedRight, setSelectedRight ] = useState({});
 
     const[ hardware, setHardware ] = useState({
         ramLeft: "",
@@ -18,6 +16,12 @@ export default function Home() {
         driverLeft: "",
         memoryTypeLeft: "",
         powerSupplyLeft: "",
+        
+        ramRight: "",
+        clockRight: "",
+        driverRight: "",
+        memoryTypeRight: "",
+        powerSupplyRight: "",
     });
 
     const [ ramLeft, setRamLeft ] = useState([]);
@@ -34,7 +38,7 @@ export default function Home() {
 
     useEffect(() => {
         
-        const select = selected.left;
+        const select = selectedLeft;
         console.log(select);
 
         api.post('info', {select}).then(response => {
@@ -46,7 +50,7 @@ export default function Home() {
                 setHardware(hardware.powerSupply)
             })
         })
-    },[selected])
+    },[selectedLeft])
 
 
 /*
@@ -75,9 +79,9 @@ export default function Home() {
 
                     <table className = "table">
                         <tr>
-                            <td>{selected.left}</td>
+                            <td>{selectedLeft.value}</td>
                             <td>Model</td>
-                            <td>{selected.right}</td>
+                            <td>{selectedRight.value}</td>
                         </tr>
                         <tr>   
                             <td>{ hardware.ramLeft }</td>
@@ -116,8 +120,7 @@ export default function Home() {
                 </div>
                 <div className = "input-background-left">
                     <Select className = "select-left" options = {options} 
-                    value = {selected.left}
-                    onChange = {setSelected}
+                    onChange = {setSelectedLeft}
                     placeholder = "Select an option"
                     />
                 </div>
@@ -127,9 +130,7 @@ export default function Home() {
                 </div>
                 <div className = "input-background-right">
                     <Select className = "select-right" options = {options} 
-                    name = "right"
-                    value = {selected.right}
-                    onChange = {setSelected}
+                    onChange = {setSelectedRight}
                     placeholder = "Select an option"
                     />
                 </div>
