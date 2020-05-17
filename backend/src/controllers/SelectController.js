@@ -3,24 +3,9 @@ const Hardwares = require('../model/hardwareSpec');
 module.exports = {
 
 
-    async getHardwareInfoLeft(request, response) {
+    async getHardwareInfo(request, response) {
 
-        const { value } = request.body.selectedLeft;
-        const model = value;
-
-        try {
-            const getInfo = await Hardwares.find({model});
-            //console.log(getInfo);
-            return response.json(getInfo);
-
-        } catch (error) {
-            return response.send(error);
-        } 
-    },
-
-    async getHardwareInfoRight(request, response) {
-
-        const { value } = request.body.selectedRight;
+        const { value } = request.body.selected;
         const model = value;
 
         try {

@@ -7,8 +7,18 @@ import api from '../../services/api';
 import './style.css';
 
 export default function Home() { 
-    const [ selectedLeft, setSelectedLeft ] = useState({});
-    const [ selectedRight, setSelectedRight ] = useState({});
+    const [ selected, setSelected ] = useState({
+        left: "",
+        right: "",
+    });
+
+    const[ hardware, setHardware ] = useState({
+        ramLeft: "",
+        clockLeft: "",
+        driverLeft: "",
+        memoryTypeLeft: "",
+        powerSupplyLeft: "",
+    });
 
     const [ ramLeft, setRamLeft ] = useState([]);
     const [ clockLeft, setClockLeft ] = useState([]);
@@ -23,19 +33,27 @@ export default function Home() {
     const [ powerSupplyRight, setPowerSupplyRight ] = useState([]);
 
     useEffect(() => {
-        api.post('infoLeft', {selectedLeft}).then(response => {
+        
+        const select = selected.left;
+        console.log(select);
+
+        api.post('info', {select}).then(response => {
             response.data.map( hardware => {
-                setRamLeft(hardware.ram)
-                setClockLeft(hardware.clock)
-                setDriverLeft(hardware.driver)
-                setMemoryTypeLeft(hardware.memoryType)
-                setPowerSupplyLeft(hardware.powerSupply)
+                setHardware(hardware.ram)
+                setHardware(hardware.clock)
+                setHardware(hardware.driver)
+                setHardware(hardware.memoryType)
+                setHardware(hardware.powerSupply)
             })
         })
-    },[selectedLeft])
+    },[selected])
 
+
+/*
     useEffect(() => {
-        api.post('infoRight', {selectedRight}).then(response => {
+        const selection = selected.right;
+
+        api.post('info', {selected}).then(response => {
             response.data.map( hardware => {
                 setRamRight(hardware.ram)
                 setClockRight(hardware.clock)
@@ -46,9 +64,8 @@ export default function Home() {
 
             console.log(response.data);
         })
-    },[selectedRight])
-   
-      
+    },[selected])  
+*/      
     return(
         <div className = "wrapper">
             <div className = "container">
@@ -58,32 +75,32 @@ export default function Home() {
 
                     <table className = "table">
                         <tr>
-                            <td>{selectedLeft.value}</td>
+                            <td>{selected.left}</td>
                             <td>Model</td>
-                            <td>{selectedRight.value}</td>
+                            <td>{selected.right}</td>
                         </tr>
                         <tr>   
-                            <td>{ ramLeft }</td>
+                            <td>{ hardware.ramLeft }</td>
                             <td>RAM</td>
                             <td>{ramRight}</td>
                         </tr>
                         <tr>
-                            <td>{clockLeft}</td>
+                            <td>{hardware.clockLeft}</td>
                             <td>Clock</td>
                             <td>{clockRight}</td>
                         </tr>
                         <tr>    
-                            <td>{driverLeft}</td>
+                            <td>{hardware.driverLeft}</td>
                             <td>Driver</td>
                             <td>{driverRight}</td>
                         </tr>
                         <tr>    
-                            <td>{memoryTypeLeft}</td>
+                            <td>{hardware.memoryTypeLeft}</td>
                             <td>Memory type</td>
                             <td>{memoryTypeRight}</td>
                         </tr>
                         <tr className = "last-tr">    
-                            <td>{powerSupplyLeft}</td>
+                            <td>{hardware.powerSupplyLeft}</td>
                             <td>Power Supply</td>
                             <td>{powerSupplyRight}</td>
                         </tr>
@@ -99,7 +116,8 @@ export default function Home() {
                 </div>
                 <div className = "input-background-left">
                     <Select className = "select-left" options = {options} 
-                    onChange = {setSelectedLeft}
+                    value = {selected.left}
+                    onChange = {setSelected}
                     placeholder = "Select an option"
                     />
                 </div>
@@ -109,7 +127,9 @@ export default function Home() {
                 </div>
                 <div className = "input-background-right">
                     <Select className = "select-right" options = {options} 
-                    onChange = {setSelectedRight}
+                    name = "right"
+                    value = {selected.right}
+                    onChange = {setSelected}
                     placeholder = "Select an option"
                     />
                 </div>
