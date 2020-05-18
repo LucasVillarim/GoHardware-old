@@ -18,8 +18,8 @@ module.exports = {
     },
 
     async createHardware( request, response ) {
-        const {model, ram, clock, driver, memoryType, powerSupply} = request.body;
-    
+        const {model, ram, clock, driver, memoryType, powerSupply} = request.body.hardware;
+
         if ( !model || !ram || !clock || !driver || !memoryType || !powerSupply ) {
             return response.send({ message: "Dados insuficientes, por favor preencha todos os campos."});
         }
@@ -29,7 +29,7 @@ module.exports = {
                 return response.send({ message: "Este hardware já existe no banco de dados."});
 
             } else {
-                const newHardware = Hardwares.create(request.body);
+                const newHardware = Hardwares.create(request.body.hardware);
                 return response.send(newHardware);
             }
 

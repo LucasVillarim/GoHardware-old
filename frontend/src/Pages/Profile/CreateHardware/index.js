@@ -20,7 +20,7 @@ export default function CreateHardware() {
         e.preventDefault();
         
         try {
-            await api.post('profile/create', { hardware });
+            await api.post('/profile/create', { hardware });
         }
         catch (err) {
             alert(err.stack);
