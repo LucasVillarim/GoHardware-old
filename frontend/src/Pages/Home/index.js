@@ -7,48 +7,59 @@ import api from '../../services/api';
 import './style.css';
 
 export default function Home() { 
-    const [ selectedLeft, setSelectedLeft ] = useState({});
-    const [ selectedRight, setSelectedRight ] = useState({});
-
-    const [ ramLeft, setRamLeft ] = useState([]);
-    const [ clockLeft, setClockLeft ] = useState([]);
-    const [ driverLeft, setDriverLeft ] = useState([]);
-    const [ memoryTypeLeft, setMemoryTypeLeft ] = useState([]);
-    const [ powerSupplyLeft, setPowerSupplyLeft ] = useState([]);
-
-    const [ ramRight, setRamRight ] = useState([]);
-    const [ clockRight, setClockRight ] = useState([]);
-    const [ driverRight, setDriverRight ] = useState([]);
-    const [ memoryTypeRight, setMemoryTypeRight ] = useState([]);
-    const [ powerSupplyRight, setPowerSupplyRight ] = useState([]);
-
-    useEffect(() => {
-        api.post('infoLeft', {selectedLeft}).then(response => {
-            response.data.map( hardware => {
-                setRamLeft(hardware.ram)
-                setClockLeft(hardware.clock)
-                setDriverLeft(hardware.driver)
-                setMemoryTypeLeft(hardware.memoryType)
-                setPowerSupplyLeft(hardware.powerSupply)
-            })
-        })
-    },[selectedLeft])
-
-    useEffect(() => {
-        api.post('infoRight', {selectedRight}).then(response => {
-            response.data.map( hardware => {
-                setRamRight(hardware.ram)
-                setClockRight(hardware.clock)
-                setDriverRight(hardware.driver)
-                setMemoryTypeRight(hardware.memoryType)
-                setPowerSupplyRight(hardware.powerSupply)
-            })
-
-            console.log(response.data);
-        })
-    },[selectedRight])
+    const [ selectedLeft, setSelectedLeft ] = useState('');
+    const [ selectedRight, setSelectedRight ] = useState('');
+    const [ hardwareSpec, setHardwareSpec ] = useState({ 
+        //left-side selection
+        ramLeft: "",
+        clockLeft: "",
+        driverLeft: "",
+        memoryTypeLeft: "",
+        powerSupplyLeft: "",
+        //Right-side selection
+        ramRight: "",
+        clockRight: "",
+        driverRight: "",
+        memoryTypeRight: "",
+        powerSupplyRight: "",
+    });
    
-      
+    useEffect(() => {
+        if (selectedLeft === null) return;
+        
+        const selection = selectedLeft;
+
+        api.post('info', { selection }).then(response => {
+            response.data.map( hardware => {
+                setHardwareSpec({ ...hardwareSpec, 
+                    ramLeft:  hardware.ram,
+                    clockLeft: hardware.clock,
+                    driverLeft:hardware.driver,
+                    memoryTypeLeft: hardware.memoryType,
+                    powerSupplyLeft: hardware.powerSupply
+                })
+            })
+        })
+    }, [selectedLeft])
+        
+    useEffect(() => {
+        if (selectedRight === null) return;
+
+        const selection = selectedRight;
+        
+        api.post('info', { selection }).then(response => {
+            response.data.map( hardware => {
+                setHardwareSpec({ ...hardwareSpec, 
+                    ramRight:  hardware.ram,
+                    clockRight: hardware.clock,
+                    driverRight:hardware.driver,
+                    memoryTypeRight: hardware.memoryType,
+                    powerSupplyRight: hardware.powerSupply
+                })
+            })
+        })
+    }, [selectedRight])
+   
     return(
         <div className = "wrapper">
             <div className = "container">
@@ -58,34 +69,34 @@ export default function Home() {
 
                     <table className = "table">
                         <tr>
-                            <td>{selectedLeft.value}</td>
+                            <td>{selectedLeft ? selectedLeft.value : ""}</td>
                             <td>Model</td>
-                            <td>{selectedRight.value}</td>
+                            <td>{selectedRight ? selectedRight.value : ""}</td>
                         </tr>
                         <tr>   
-                            <td>{ ramLeft }</td>
+                            <td>{selectedLeft ? hardwareSpec.ramLeft : ""}</td>
                             <td>RAM</td>
-                            <td>{ramRight}</td>
+                            <td>{selectedRight ? hardwareSpec.ramRight : ""}</td>
                         </tr>
                         <tr>
-                            <td>{clockLeft}</td>
+                            <td>{selectedLeft ? hardwareSpec.clockLeft : ""}</td>
                             <td>Clock</td>
-                            <td>{clockRight}</td>
+                            <td>{selectedRight ? hardwareSpec.clockRight : ""}</td>
                         </tr>
                         <tr>    
-                            <td>{driverLeft}</td>
+                            <td>{selectedLeft ? hardwareSpec.driverLeft : ""}</td>
                             <td>Driver</td>
-                            <td>{driverRight}</td>
+                            <td>{selectedRight ? hardwareSpec.driverRight : ""}</td>
                         </tr>
                         <tr>    
-                            <td>{memoryTypeLeft}</td>
+                            <td>{selectedLeft ? hardwareSpec.memoryTypeLeft : ""}</td>
                             <td>Memory type</td>
-                            <td>{memoryTypeRight}</td>
+                            <td>{selectedRight ? hardwareSpec.memoryTypeRight : ""}</td>
                         </tr>
                         <tr className = "last-tr">    
-                            <td>{powerSupplyLeft}</td>
+                            <td>{selectedLeft ? hardwareSpec.powerSupplyLeft : ""}</td>
                             <td>Power Supply</td>
-                            <td>{powerSupplyRight}</td>
+                            <td>{selectedRight ? hardwareSpec.powerSupplyRight : ""}</td>
                         </tr>
                     </table>
                 </div>
@@ -101,6 +112,7 @@ export default function Home() {
                     <Select className = "select-left" options = {options} 
                     onChange = {setSelectedLeft}
                     placeholder = "Select an option"
+                    isClearable
                     />
                 </div>
                 
@@ -111,6 +123,7 @@ export default function Home() {
                     <Select className = "select-right" options = {options} 
                     onChange = {setSelectedRight}
                     placeholder = "Select an option"
+                    isClearable
                     />
                 </div>
 
@@ -120,9 +133,7 @@ export default function Home() {
 }
 
 /*
- {hardwareInfoLeft.map( hardwareLeft => (
-                            hardwareInfoRight.map(hardwareRight => (
 
-    ))
-                        ))}
-                                */
+Junkyard
+
+*/
