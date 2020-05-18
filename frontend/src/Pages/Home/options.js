@@ -9,8 +9,3 @@ api.get('/data').then(
 );  
 
 export default options;
-
-
-
-
-

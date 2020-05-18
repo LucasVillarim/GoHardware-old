@@ -55,6 +55,7 @@
 .header a.sobre {
     font-family: 'Press Start 2P', cursive;
     font-weight: bold;
+    color: inherit;
     background-color: #FFF;
     padding: 10px 20px;
     position: absolute;

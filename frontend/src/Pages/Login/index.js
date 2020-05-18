@@ -17,12 +17,18 @@ export default function Login() {
         
         try{
 
-            const response = await api.post('auth', {email, password});
+            const response = await api.post('auth', {email, password}).then(
+                response => {
+                    localStorage.setItem('jwt', response.data.token);
+                    localStorage.setItem('email', email);
 
-            localStorage.setItem('email', email);
-            localStorage.setItem('password', password);
+                    history.push('/profile');
 
-            history.push('/profile');
+                }
+            );
+
+               
+            
         
         } catch (err) {
             alert(err);
