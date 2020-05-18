@@ -7,8 +7,8 @@ import api from '../../services/api';
 import './style.css';
 
 export default function Home() { 
-    const [ selectedLeft, setSelectedLeft ] = useState({});
-    const [ selectedRight, setSelectedRight ] = useState({});
+    const [ selectedLeft, setSelectedLeft ] = useState('');
+    const [ selectedRight, setSelectedRight ] = useState('');
     const [ hardwareSpec, setHardwareSpec ] = useState({ 
         //left-side selection
         ramLeft: "",
@@ -25,6 +25,8 @@ export default function Home() {
     });
    
     useEffect(() => {
+        if (selectedLeft === null) return;
+        
         const selection = selectedLeft;
 
         api.post('info', { selection }).then(response => {
@@ -41,6 +43,8 @@ export default function Home() {
     }, [selectedLeft])
         
     useEffect(() => {
+        if (selectedRight === null) return;
+
         const selection = selectedRight;
         
         api.post('info', { selection }).then(response => {
@@ -65,34 +69,34 @@ export default function Home() {
 
                     <table className = "table">
                         <tr>
-                            <td>{selectedLeft.value}</td>
+                            <td>{selectedLeft ? selectedLeft.value : ""}</td>
                             <td>Model</td>
-                            <td>{selectedRight.value}</td>
+                            <td>{selectedRight ? selectedRight.value : ""}</td>
                         </tr>
                         <tr>   
-                            <td>{hardwareSpec.ramLeft}</td>
+                            <td>{selectedLeft ? hardwareSpec.ramLeft : ""}</td>
                             <td>RAM</td>
-                            <td>{hardwareSpec.ramRight}</td>
+                            <td>{selectedRight ? hardwareSpec.ramRight : ""}</td>
                         </tr>
                         <tr>
-                            <td>{hardwareSpec.clockLeft}</td>
+                            <td>{selectedLeft ? hardwareSpec.clockLeft : ""}</td>
                             <td>Clock</td>
-                            <td>{hardwareSpec.clockRight}</td>
+                            <td>{selectedRight ? hardwareSpec.clockRight : ""}</td>
                         </tr>
                         <tr>    
-                            <td>{hardwareSpec.driverLeft}</td>
+                            <td>{selectedLeft ? hardwareSpec.driverLeft : ""}</td>
                             <td>Driver</td>
-                            <td>{hardwareSpec.driverRight}</td>
+                            <td>{selectedRight ? hardwareSpec.driverRight : ""}</td>
                         </tr>
                         <tr>    
-                            <td>{hardwareSpec.memoryTypeLeft}</td>
+                            <td>{selectedLeft ? hardwareSpec.memoryTypeLeft : ""}</td>
                             <td>Memory type</td>
-                            <td>{hardwareSpec.memoryTypeRight}</td>
+                            <td>{selectedRight ? hardwareSpec.memoryTypeRight : ""}</td>
                         </tr>
                         <tr className = "last-tr">    
-                            <td>{hardwareSpec.powerSupplyLeft}</td>
+                            <td>{selectedLeft ? hardwareSpec.powerSupplyLeft : ""}</td>
                             <td>Power Supply</td>
-                            <td>{hardwareSpec.powerSupplyRight}</td>
+                            <td>{selectedRight ? hardwareSpec.powerSupplyRight : ""}</td>
                         </tr>
                     </table>
                 </div>
@@ -108,6 +112,7 @@ export default function Home() {
                     <Select className = "select-left" options = {options} 
                     onChange = {setSelectedLeft}
                     placeholder = "Select an option"
+                    isClearable
                     />
                 </div>
                 
@@ -118,6 +123,7 @@ export default function Home() {
                     <Select className = "select-right" options = {options} 
                     onChange = {setSelectedRight}
                     placeholder = "Select an option"
+                    isClearable
                     />
                 </div>
 

@@ -17,6 +17,18 @@ module.exports = {
         } 
     },
 
+    async getSelectInfo(request, response) {
+
+        try {
+            const selectData = await Hardwares.find({});
+            
+            return response.json(selectData);
+        }
+        catch (error) {
+            return response.send(error);
+        }
+    },
+
     async createHardware( request, response ) {
         const {model, ram, clock, driver, memoryType, powerSupply} = request.body.hardware;
 
