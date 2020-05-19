@@ -10,9 +10,9 @@ The main goal of the app is comparison between hardwares, the login authenticati
 
 ## Home Page ( Comparison functionality )
 
-![Main Page](frontend/src/assets/home.gif)
+![Main Page](frontend/src/assets/home.gif){width = 300 height = 300}
 
 ## Login Page ( Login authentication )
 
-![Login Page](frontend/src/assets/login.gif)
+![Login Page](frontend/src/assets/login.gif){width = 300 height = 300}
 
