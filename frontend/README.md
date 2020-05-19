@@ -10,9 +10,9 @@ The main goal of the app is comparison between hardwares, the login authenticati
 
 ## Home Page ( Comparison functionality )
 
-![Main Page](/assets/home.gif)
+![Main Page](assets/home.gif)
 
-## Login Auth
+## Login Page ( Login authentication )
 
-![Login Auth](/assets/login.gif)
+![Login Page](assets/login.gif)
 
