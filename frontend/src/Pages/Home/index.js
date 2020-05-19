@@ -7,6 +7,8 @@ import api from '../../services/api';
 import './style.css';
 
 export default function Home() { 
+
+    const [ fade, setFade ] = useState(false);
     const [ selectedLeft, setSelectedLeft ] = useState('');
     const [ selectedRight, setSelectedRight ] = useState('');
     const [ hardwareSpec, setHardwareSpec ] = useState({ 

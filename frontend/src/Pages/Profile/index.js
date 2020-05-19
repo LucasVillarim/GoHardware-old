@@ -25,10 +25,6 @@ export default function Profile() {
                     <label className = "title">Last Comparison:</label>
                     <label>Hardware X</label>
                     <label>Hardware Y</label>
-
-                    <div className = "glass-background1"></div>
-                    <div className = "glass-detail1"></div>
-                    <div className = "glass-detail2"></div>
                 </div>
 
                 <div className = "hardware-data-box">
@@ -39,8 +35,6 @@ export default function Profile() {
                     <label>Clock : Lorem ipsum</label>
                     <label>Power demand : 000W</label>
                 
-                    
-                <div className = "glass-detail1-box2"></div>
                 </div>
             </div>
         </div>

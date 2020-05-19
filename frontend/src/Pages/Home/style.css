@@ -162,6 +162,14 @@ Left-side selector styles -------------
     border-collapse: collapse;
     width: 60%;
     border-radius: 10px;
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes fade {
+    0% {opacity: 0;}
+    100% {opacity: 1}
 }
 
 .container tr td{

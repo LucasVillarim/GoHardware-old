@@ -23,16 +23,11 @@ export default function Login() {
                     localStorage.setItem('email', email);
 
                     history.push('/profile');
-
                 }
             );
-
-               
-            
-        
+    
         } catch (err) {
-            alert(err);
-            
+            alert(err);         
         }
     }
 
