@@ -99,6 +99,9 @@ Right-side selector styles ---------------
     top: 300px;
     right: 20px;
     border-radius: 10px;
+    animation-name: background-fade;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
 }
 
 .container div.input-background-right .select-right {
@@ -142,6 +145,14 @@ Left-side selector styles -------------
     top: 300px;
     left: 20px;
     border-radius: 10px;
+    animation-name: background-fade;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+@keyframes background-fade {
+    0% { opacity: 0; transform: scale(1.4); }
+    100% { opacity: 1; transform: scale(1);}
 }
 
 .container div.input-background-left .select-left {
@@ -162,14 +173,14 @@ Left-side selector styles -------------
     border-collapse: collapse;
     width: 60%;
     border-radius: 10px;
-    animation-name: fade;
-    animation-duration: 2s;
+    animation-name: enlarge;
+    animation-duration: 1s;
     animation-iteration-count: 1;
 }
 
-@keyframes fade {
-    0% {opacity: 0;}
-    100% {opacity: 1}
+@keyframes enlarge {
+    0% {width: 0;}
+    100% {width: 60%;}
 }
 
 .container tr td{
@@ -177,7 +188,6 @@ Left-side selector styles -------------
     padding: 8px;
     animation-name: fade;
     animation-duration: 2s;
-    animation-delay: 1s;
     animation-iteration-count: 1;
 }
 

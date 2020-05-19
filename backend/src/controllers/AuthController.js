@@ -20,7 +20,6 @@ module.exports = {
             }
 
             user.password = undefined;
-            console.log(email, password);
             return response.json({ user, token: createUserToken(user.id) });
 
 
